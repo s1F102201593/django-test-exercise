@@ -33,12 +33,12 @@ def detail(request, task_id):
 
 def close(request, task_id):
     try:
-        task = Task.objects.get.get(pk=task_id)
+        task = Task.objects.get(pk=task_id)
     except Task.DoesNotExist:
         raise Http404("Task dose not exist")
-        task.completed = True
-        task.save()
-        return redirect(index)
+    task.completed = True
+    task.save()
+    return redirect(index)
 
 def delete(request, task_id):
     try:
